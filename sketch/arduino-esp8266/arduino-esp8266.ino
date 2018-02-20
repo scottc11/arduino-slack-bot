@@ -1,15 +1,18 @@
+// make sure 'generic ESP8266 Module' is selected in Tools --> Boards
 
+
+String network = "";
+String password = "";
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(LED_BUILTIN, OUTPUT);
-
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);                       // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);   // Turn the LED on (Note that LOW is the voltage level
+                                    // but actually the LED is on; this is because 
+                                    // it is active low on the ESP-01)
+  delay(1000);                      // Wait for a second
+  digitalWrite(LED_BUILTIN, HIGH);  // Turn the LED off by making the voltage HIGH
+  delay(2000);                      // Wait for two seconds (to demonstrate the active low LED)
 }
