@@ -26,4 +26,19 @@ Tools --> Port --> select whatever has `usbmodem` in it
 ### [Fritzing](http://fritzing.org/home/)
 - a virtual arduino prototyping tool
 
-### [Set up the Arduino IDE to program the ESP8266](https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/installing-the-esp8266-arduino-addon)
+### Programming the ESP8266
+Setting up the Arduino IDE --> [Sparkfun tutorial](https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/installing-the-esp8266-arduino-addon)
+
+
+#### Basic ESP8266 Arduino IDE Documentation:
+- `WifiClientSecure` Class
+  - The Client class creates clients that can access services provided by servers in order to send, receive and process data.
+  - tutorial [here](https://arduino-esp8266.readthedocs.io/en/2.4.0/esp8266wifi/client-examples.html)
+  - Example Sketch [here](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/HTTPSRequest/HTTPSRequest.ino)
+  - to send a 'GET' request, you literally 'print' to the `WifiClient` object like so `client.print("GET / HTTP/1.1\r\n" + "other stuff")`
+  - fingerprints obtained like [this](https://github.com/esp8266/Arduino/blob/master/doc/esp8266wifi/client-secure-examples.rst#get-the-fingerprint)
+
+#### Notes:
+- GPI0 pin:
+  - "GPIO0 – while perfectly capable as a digital I/O – serves a secondary purpose as a bootload/run-mode controller. When the ESP8266 boots up, it looks at GPIO0’s value to either enter the bootloader or start running the current program" - [Sparkfun](https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/all#programming-the-thing)
+- "if connection is established, and then lost for some reason, ESP will automatically reconnect to last used access point once it is again back on-line. This will be done automatically by Wi-Fi library, without any user intervention." - [Docs](https://arduino-esp8266.readthedocs.io/en/2.4.0/esp8266wifi/readme.html)
